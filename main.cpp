@@ -14,7 +14,25 @@ vector<string> split(const string &);
  */
 
 int birthdayCakeCandles(vector<int> candles) {
+    int maxHeight = 0;
+    int tallestCount = 0;
 
+    //Count each number in the array
+    for (int i = 0; i < candles.size(); i++) {
+        int currentHeight = 0;
+        currentHeight = candles[i];
+        //Flag the tallest height
+        if (currentHeight > maxHeight) {
+            maxHeight = currentHeight;
+            tallestCount = 1;
+        }
+        else if (currentHeight == maxHeight) {
+            tallestCount++;
+        }
+    }
+
+    //return the number of tallest candles
+    return tallestCount;
 }
 
 int main()
