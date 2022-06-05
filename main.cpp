@@ -49,19 +49,24 @@ int main()
 
     vector<string> candles_temp = split(rtrim(candles_temp_temp));
 
-    vector<int> candles(candles_count);
+    if (candles_count >= 1 && candles_count <= 1e5) {
+        vector<int> candles(candles_count);
 
-    for (int i = 0; i < candles_count; i++) {
-        int candles_item = stoi(candles_temp[i]);
+        for (int i = 0; i < candles_count; i++) {
+            int candles_item = stoi(candles_temp[i]);
 
-        candles[i] = candles_item;
+            if (candles_item >= 1 && candles_item <= 1e7) {
+                candles[i] = candles_item;
+            }
+        }
+
+        int result = birthdayCakeCandles(candles);
+
+        fout << result << "\n";
+
+        fout.close();
     }
 
-    int result = birthdayCakeCandles(candles);
-
-    fout << result << "\n";
-
-    fout.close();
 
     return 0;
 }
